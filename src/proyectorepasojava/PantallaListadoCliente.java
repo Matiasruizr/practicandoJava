@@ -5,12 +5,18 @@
  */
 package proyectorepasojava;
 
+import java.util.ArrayList;
+import proyectorepasojava.PantallaIngresoCliente;
+import java.util.Iterator;
 /**
  *
  * @author matia
  */
 public class PantallaListadoCliente extends javax.swing.JFrame {
-
+    
+    private ListadoCliente auxListadoPantallaListadoCliente;
+    
+  
     /**
      * Creates new form PantallaListadoCliente
      */
@@ -28,17 +34,22 @@ public class PantallaListadoCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaCliente = new javax.swing.JTextArea();
+        desplegaCliente = new javax.swing.JTextArea();
         btnMostrar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextAreaCliente.setColumns(20);
-        jTextAreaCliente.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaCliente);
+        desplegaCliente.setColumns(20);
+        desplegaCliente.setRows(5);
+        jScrollPane1.setViewportView(desplegaCliente);
 
         btnMostrar.setText("Mostar");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +93,11 @@ public class PantallaListadoCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        Iterator iter = this.getAuxListadoPantallaListadoCliente().getAuxListaCliente().iterator();
+        this.desplegaCliente.setText(this.auxListadoPantallaListadoCliente.imprimeClientes());
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -93,7 +109,14 @@ public class PantallaListadoCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JTextArea desplegaCliente;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaCliente;
     // End of variables declaration//GEN-END:variables
+
+    private ListadoCliente getAuxListadoPantallaListadoCliente() {
+        return auxListadoPantallaListadoCliente;
+    }
+     private void setAuxListadoPantallaListadoCliente(ListadoCliente auxListadoPantallaListadoCliente) {
+        this.auxListadoPantallaListadoCliente = auxListadoPantallaListadoCliente;
+    }
 }

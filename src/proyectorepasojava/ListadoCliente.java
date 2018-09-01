@@ -26,17 +26,19 @@ public class ListadoCliente
        this.getAuxListaCliente().add(cliente);
     }
     
-    public void imprimeClientes()
+    public String imprimeClientes()
     {
         Iterator iter = this.getAuxListaCliente().iterator();
         
+        String lista = " ";
         while(iter.hasNext())
         {
            Cliente auxCliente = new Cliente();
            auxCliente = (Cliente) iter.next();
-           System.out.println(auxCliente.getRut() + " "+
-                              auxCliente.getNombre());
+           lista = auxCliente.getRut() + " "+ auxCliente.getNombre() +"\n";
+            
         }
+        return lista;
     }
     
     
@@ -54,6 +56,5 @@ public class ListadoCliente
     public void setAuxListaCliente(ArrayList<Cliente> AuxListaCliente) {
         this.AuxListaCliente = AuxListaCliente;
     }
-    
-    
+   
 }
